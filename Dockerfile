@@ -26,6 +26,9 @@ USER root
 RUN chown hubot:hubot -R /home/hubot/node_modules/hubot-rocketchat
 USER hubot
 
+# Added aws-sdk npm install to fix package issue through external scripts 
+RUN npm install aws-sdk round-to
+
 RUN cd /home/hubot/node_modules/hubot-rocketchat && \
 	npm install && \
 	coffee -c /home/hubot/node_modules/hubot-rocketchat/src/*.coffee && \
